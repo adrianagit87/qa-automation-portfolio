@@ -71,6 +71,18 @@ Ningún pedido vuelve a pegar este contenido en el chat. Se señala el archivo.
 | **Reglas que aplica** | `.agents/rules/criterio-qa.md`, en especial la sección 5: un caso sin fuente no es un caso |
 | **Nació en** | C8, empaquetando cómo se dirigió a la IA capa por capa sobre el login: los cinco pedidos son los pasos y los gates son los límites |
 
+### `diagnosticar-fallo-playwright` · skill
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/skills/diagnosticar-fallo-playwright/SKILL.md` |
+| **Qué hace** | lee un rojo o un verde sospechoso de un test de Playwright, lo ubica en una de cuatro lecturas, nombra la causa con la línea de la salida que la prueba y propone el cambio mínimo |
+| **Qué NO hace** | no agrega esperas fijas, no sube timeouts, no arregla hasta verde, no copia el `Received` al `Expected` sin fuente, no decide si el producto está bien |
+| **Qué necesita de entrada** | el archivo del test + la salida completa del runner + qué tenía que pasar según la fuente + `.agents/rules/criterio-qa.md` §6 |
+| **Dónde deja la salida** | en la conversación, en seis líneas; el cambio lo aplica y lo firma la QA |
+| **Cuándo pide decisión humana** | cuando la fuente no fija el texto esperado, cuando un test flaky no se reproduce, cuando la causa está en el producto |
+| **Nació en** | C11, empaquetando las cuatro lecturas hechas a mano en C10 y C11 sobre `tests/e2e/login.spec.ts` |
+
 ---
 
 ## 4. Cómo crece este archivo
