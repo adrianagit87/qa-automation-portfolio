@@ -87,6 +87,10 @@ no identifica *el email del login*: identifica *el email de la página que esté
 
 # Refinamiento de S4
 
+> **Retirada en C12 (7 de octubre de 2026).** Los locators del login viven en `pages/login.page.ts`:
+> es código que se ejecuta y que avisa cuando está mal. Esta tabla queda como registro de **por qué**
+> se eligió cada uno y ya no se actualiza. Si un locator del login cambia, se cambia en el page object.
+
 Hoy le sumamos a lo anterior los **locators de Playwright**, que buscan por cómo una persona percibe
 el elemento —su rol, su etiqueta, su texto visible—, un criterio que CSS no puede expresar.
 
