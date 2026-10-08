@@ -175,7 +175,7 @@ sección 3 o 4 que quedó floja y se vuelve a correr.**
 |---|---|
 | **C12** | la suite tiene que estar verde antes y después de mover los locators a un Page Object; un rojo en el medio se lee con esta skill antes de tocar nada |
 | **C13** | se agrega un paso: abrir el `trace.zip` y la captura de `test-results/` antes de nombrar la causa. **Hasta C13, la evidencia es la salida del runner** |
-| **C14** | los tests que genere el `pom-agent` pasan por la lectura 4 y por la prueba de control antes de aceptarse |
+| **C14** | el page object que genera el `pom-agent`: su rojo se lee con la tabla del paso 2, y cada aserción nueva que queda en verde pasa por la lectura 4 y la prueba de control antes de aceptarse |
 | **C17** | un rojo en la integración continua se lee igual: primero la salida, después el cambio |
 
 ---
