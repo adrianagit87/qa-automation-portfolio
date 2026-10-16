@@ -83,6 +83,18 @@ Ningún pedido vuelve a pegar este contenido en el chat. Se señala el archivo.
 | **Cuándo pide decisión humana** | cuando la fuente no fija el texto esperado, cuando un test flaky no se reproduce, cuando la causa está en el producto |
 | **Nació en** | C11, empaquetando las cuatro lecturas hechas a mano en C10 y C11 sobre `tests/e2e/login.spec.ts` |
 
+### `crear-fixture-playwright` · skill
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/skills/crear-fixture-playwright/SKILL.md` |
+| **Qué hace** | lee tests reales, identifica preparación común y propone una fixture antes de editar |
+| **Qué NO hace** | no cambia casos, REQ, títulos, datos ni aserciones; no duplica fixtures ni ejecuta tests sin petición |
+| **Qué necesita de entrada** | tests, Page Objects y fixtures utilizados, instrucciones del proyecto y alcance |
+| **Dónde deja la salida** | en la conversación: preparación encontrada y plan; tras aprobación, diff y comprobaciones |
+| **Cuándo pide decisión humana** | antes de editar, ante entradas faltantes o cambios de alcance |
+| **Nació en** | C13, después de extraer a mano la preparación común del login |
+
 ---
 
 ## 4. Cómo crece este archivo
