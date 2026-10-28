@@ -113,6 +113,15 @@ Ningún pedido vuelve a pegar este contenido en el chat. Se señala el archivo.
 | **Qué entrega** | `CANDIDATO` o `ESCALADO`. Nunca `ACEPTADO`: esa decisión es de la QA |
 | **Nació en** | C14. El primer agente del repositorio |
 
+### `automatizar-caso` · skill
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/skills/automatizar-caso/SKILL.md` |
+| **Qué hace** | toma una fila firmada `AUTOMATIZAR YA` de `docs/estrategia-automatizacion.md` §3 y la convierte en un test E2E con su ítem y su REQ citados, usando los Page Objects y las fixtures que ya existen; lo ejecuta y clasifica cada fallo |
+| **Qué NO hace** | no decide qué se automatiza; no toca filas sin decisión y razón; no agrega locators al Page Object; no cambia un resultado esperado para que pase; no marca `test.fail()`; no toca el backlog |
+| **Nació en** | material extra, después de C14. Es la continuación de `priorizar-automatizacion` |
+
 ---
 
 ## 4. Cómo crece este archivo
