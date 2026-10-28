@@ -1,0 +1,23 @@
+<!-- outerHTML del <form> de https://playground.calidadsinhumo.com/registro
+     Copiado con DevTools -> Elements -> clic derecho sobre el <form> -> Copy -> Copy outerHTML
+     Observado el 2026-10-02. Si el producto cambia, se vuelve a copiar y se anota la fecha nueva.
+     (Entre el 2026-08-18 y el 2026-10-02 cambiaron las clases de estilo; las etiquetas, los id y los data-testid no.) -->
+<form class="space-y-5" novalidate="">
+<div>
+<label for="name" class="mb-1.5 block text-sm font-medium">Nombre completo</label>
+<input id="name" type="text" placeholder="Ana García" class="w-full rounded-md border border-input-border bg-background px-4 py-2.5 text-sm transition-colors placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/20" data-testid="register-name" value="">
+</div>
+<div>
+<label for="email" class="mb-1.5 block text-sm font-medium">Email</label>
+<input id="email" type="email" placeholder="ana@ejemplo.com" class="w-full rounded-md border border-input-border bg-background px-4 py-2.5 text-sm transition-colors placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/20" data-testid="register-email" value="">
+</div>
+<div>
+<label for="password" class="mb-1.5 block text-sm font-medium">Contraseña</label>
+<input id="password" type="password" placeholder="Mínimo 8 caracteres" class="w-full rounded-md border border-input-border bg-background px-4 py-2.5 text-sm transition-colors placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/20" data-testid="register-password" value="">
+</div>
+<div>
+<label for="age" class="mb-1.5 block text-sm font-medium">Edad</label>
+<input id="age" type="number" placeholder="25" min="1" max="150" class="w-full rounded-md border border-input-border bg-background px-4 py-2.5 text-sm transition-colors placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/20" data-testid="register-age" value="">
+</div>
+<button type="submit" class="w-full rounded-md bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-all hover:scale-[1.02] hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50" data-testid="register-submit">Crear cuenta</button>
+</form>

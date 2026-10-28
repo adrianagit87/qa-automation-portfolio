@@ -95,6 +95,24 @@ Ningún pedido vuelve a pegar este contenido en el chat. Se señala el archivo.
 | **Cuándo pide decisión humana** | antes de editar, ante entradas faltantes o cambios de alcance |
 | **Nació en** | C13, después de extraer a mano la preparación común del login |
 
+### `generar-pom` · skill
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/skills/generar-pom/SKILL.md` |
+| **Qué hace** | completa un page object desde el HTML real, el test y su fixture; lo verifica con una rúbrica de cuatro criterios y ejecutando el test; deja la evidencia en `reports/pom-agent-report.md` |
+| **Qué NO hace** | no toca el test, la fixture ni otros archivos; no borra lo que el page object ya exponía; no inventa la ruta; no escribe `ACEPTADO` |
+| **Nació en** | C14. La primera capacidad del repositorio que escribe un archivo de código |
+
+### `@pom-agent` · agente
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/workflows/pom-agent.md`, que se invoca como `/pom-agent` |
+| **Qué hace** | usa `generar-pom`, lee la evidencia y **decide solo** si para, corrige o escala, hasta 3 intentos |
+| **Qué entrega** | `CANDIDATO` o `ESCALADO`. Nunca `ACEPTADO`: esa decisión es de la QA |
+| **Nació en** | C14. El primer agente del repositorio |
+
 ---
 
 ## 4. Cómo crece este archivo
@@ -119,6 +137,9 @@ cotidiano**. Si se usa una vez, fue un pedido puntual y no necesita archivo.
 
 - **No hay agentes todavía.** Un agente es un modelo con herramientas, un ciclo de trabajo y una
   condición de parada. Lo que hay hoy son reglas y dos skills: instrucciones, no autonomía.
+- **Desde C14 hay un agente, y uno solo:** `@pom-agent`. Lo de arriba era verdad hasta C13. Las
+  demás capacidades siguen siendo instrucciones, y está bien: no se convierte en agente lo que no
+  necesita herramientas ni un ciclo.
 - **No hay subagentes.** Se usan cuando el trabajo es divisible de verdad o cuando hacen falta
   miradas independientes que después alguien reconcilia. Todavía no es el caso.
 - **El criterio no está acá.** Se puede escribir el procedimiento; no se puede escribir la firma.

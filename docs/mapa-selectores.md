@@ -179,3 +179,36 @@ y revisaremos qué demuestra.
 
 Ya tienes locators que encuentran el elemento correcto. ¿Qué falta para que eso sea una **prueba**?
 Encontrar un elemento no es todavía comprobar que la aplicación hace lo que promete.
+
+---
+
+## Registro · opción rechazada — comprobada ejecutando
+
+- **Página:** `https://playground.calidadsinhumo.com/registro` · evidencia: `evidence/registro-form.html`
+- **Selector evaluado:** `getByText('Crear cuenta')`, para el botón de envío.
+- **Qué pasó al ejecutarlo:**
+
+  ```text
+  strict mode violation: getByText('Crear cuenta') resolved to 3 elements:
+    1) <a href="/registro" data-testid="nav-registro">Crear cuenta de práctica</a>
+    2) <h1 data-testid="register-title">Crear cuenta</h1>
+    3) <button type="submit" data-testid="register-submit">Crear cuenta</button>
+  ```
+
+- **Por qué se rechaza:** el texto está en el menú, en el título y en el botón. `getByText` no
+  distingue qué es cada cosa; `getByRole('button', { name: 'Crear cuenta' })` encuentra exactamente 1.
+- **Comprobado el:** 2026-08-18 y 2026-10-02.
+- **La regla:** *cuando un texto se repite en la página, el rol es lo que desambigua.*
+
+> No sale de que la IA se haya equivocado: es una propiedad de la página, y estaría ahí aunque nadie
+> usara IA.
+
+## Registro · locators `SIN FILA` del agente
+
+Los que el agente propuso con un tipo que tu mapa todavía no cubre. Los decides tú, en el gate.
+
+| Locator propuesto | Lo agrego al criterio / lo rechazo | Razón |
+|---|---|---|
+| `getByLabel('Nombre completo')` | lo agrego | mismo tipo que `getByLabel('Email')` y `getByLabel('Contraseña')` del login: `<label for="name">` en la línea 7 del HTML. Deja de ser válido si cambia la etiqueta accesible |
+| `getByLabel('Edad')` | lo agrego | `<label for="age">` en la línea 19 del HTML. La prueba de control lo midió: pegado en el login, rojo con `element(s) not found` (2026-10-28) |
+| `getByRole('button', { name: 'Crear cuenta' })` | lo agrego | es la opción que esta misma sección deja en pie: `getByText('Crear cuenta')` encuentra 3 elementos y el rol desambigua |
