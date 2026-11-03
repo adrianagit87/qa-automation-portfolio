@@ -122,6 +122,15 @@ Ningún pedido vuelve a pegar este contenido en el chat. Se señala el archivo.
 | **Qué NO hace** | no decide qué se automatiza; no toca filas sin decisión y razón; no agrega locators al Page Object; no cambia un resultado esperado para que pase; no marca `test.fail()`; no toca el backlog |
 | **Nació en** | material extra, después de C14. Es la continuación de `priorizar-automatizacion` |
 
+### `reportar-bug` · skill
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/skills/reportar-bug/SKILL.md` |
+| **Qué hace** | redacta reportes de bug desde evidencia copiada y una fuente, y separa los bugs de los hallazgos sin fuente |
+| **Qué NO hace** | no inventa datos, no decide la severidad, no afirma la causa, no crea tickets |
+| **Nació en** | C15. La séptima skill del repositorio |
+
 ---
 
 ## 4. Cómo crece este archivo

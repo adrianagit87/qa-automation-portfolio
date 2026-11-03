@@ -218,6 +218,14 @@ Si te cuesta arrancar, estas preguntas suelen destapar algo:
 - ¿Qué debería responder si el body llega mal formado?
 - ¿Qué prometen `/api/auth/me` y `/api/progress`, que existen y no están documentados?
 
+**Observaciones del 2026-11-02**, de la corrida del repositorio de demostración:
+
+- Sin sesión, `POST /api/enroll` responde `200` y entrega una cookie `ash_session` nueva. El contrato no define si necesita sesión.
+- Repetir la inscripción con la misma sesión devuelve `409` con `{"error":"Ya estás inscrito en este curso"}`. No está documentado.
+- Un pedido sin cuerpo devuelve `500` con el body vacío. El contrato no define el body mal formado.
+- `GET /api/enroll` devuelve `405`. El contrato no define los métodos que no acepta.
+- El contrato se contradice: el caso 4 promete lista de espera para `api-testing`, y la tabla de REQ-C02 dice rechazado si el prerequisito no está completado. No lo decide QA.
+
 ---
 
 ## 6. Cómo organizar este contrato con IA
