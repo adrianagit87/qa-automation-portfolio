@@ -131,6 +131,24 @@ Ningún pedido vuelve a pegar este contenido en el chat. Se señala el archivo.
 | **Qué NO hace** | no inventa datos, no decide la severidad, no afirma la causa, no crea tickets |
 | **Nació en** | C15. La séptima skill del repositorio |
 
+### `generar-tests-api` · skill
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/skills/generar-tests-api/SKILL.md` |
+| **Qué hace** | convierte filas de `docs/contrato-api.md` en tests de API con su REQ citado, los ejecuta y clasifica cada fallo |
+| **Qué NO hace** | no inventa rutas, status ni campos; no corrige un fallo que no sea del test; no marca `test.fail()`; no toca el contrato |
+| **Nació en** | C16. La octava skill del repositorio |
+
+### `@api-agent` · agente
+
+| | |
+|---|---|
+| **Dónde vive** | `.agents/workflows/api-agent.md`, que se invoca como `/api-agent` |
+| **Qué hace** | usa `generar-tests-api`: propone un plan trazable, espera `PLAN APROBADO`, escribe, ejecuta, clasifica y decide si para, corrige o escala, hasta 3 intentos |
+| **Qué entrega** | `CANDIDATO`, `CANDIDATO CON HALLAZGOS` o `ESCALADO`. Nunca `ACEPTADO` |
+| **Nació en** | C16. El segundo agente del repositorio |
+
 ---
 
 ## 4. Cómo crece este archivo
@@ -158,6 +176,8 @@ cotidiano**. Si se usa una vez, fue un pedido puntual y no necesita archivo.
 - **Desde C14 hay un agente, y uno solo:** `@pom-agent`. Lo de arriba era verdad hasta C13. Las
   demás capacidades siguen siendo instrucciones, y está bien: no se convierte en agente lo que no
   necesita herramientas ni un ciclo.
+- **Desde C16 son dos:** `@pom-agent` y `@api-agent`. Los dos entregan candidatos; la aceptación
+  sigue siendo de la QA.
 - **No hay subagentes.** Se usan cuando el trabajo es divisible de verdad o cuando hacen falta
   miradas independientes que después alguien reconcilia. Todavía no es el caso.
 - **El criterio no está acá.** Se puede escribir el procedimiento; no se puede escribir la firma.
