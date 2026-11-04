@@ -14,4 +14,9 @@ export class CursosService {
     async inscribirSinCurso() {
         return this.request.post('/api/enroll', { data: {} });
     }
+
+    // GET /api/courses · docs/contrato-api.md §0 y §3. Devuelve la respuesta; ningún expect.
+    async listar() {
+        return this.request.get('/api/courses');
+    }
 }
