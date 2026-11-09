@@ -47,7 +47,7 @@ test('caso 4 · REQ-C05 · en lista de espera no se muestra como inscrito', asyn
 });
 
 test('caso 5 · REQ-C06 · con el prerequisito pendiente rechaza con 403', async ({ cursos }) => {
-    //test.fail(); // BUG-ENROLL-01, visto el 2/11/2026: responde 200 inscrito y REQ-C06 pide rechazo.
+    test.fail(); // BUG-ENROLL-01, visto el 2/11/2026: responde 200 inscrito y REQ-C06 pide rechazo.
     const respuesta = await cursos.inscribir('playwright-cero');
 
     expect(respuesta.status()).toBe(403);
